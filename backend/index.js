@@ -35,9 +35,9 @@ app.post('/req', (request, response) => {
                 }
                 break;
             case "FreeStyle" :
-                min=this.height+10
-                  max=this.height+15
-                recommendedlength=""+min+'-'+max
+                  min=request.body.height+10
+                   max=request.body.height+15
+                  recommendedlength=""+min+'-'+max
                 break;   
         
             default:

@@ -35,6 +35,7 @@
                     ></v-radio>
                 </v-radio-group>
             </div>
+            <!-- Button is set to communicate with server -->
             <v-btn depressed color="primary" @click="sendReq">Submit</v-btn>
            <v-col cols="4">
                  Client:
@@ -95,6 +96,7 @@ export default {
                   break;
           }
     },
+    //To communicate with server on backend part
     sendReq:function(){
         let req={
             height:this.height,
@@ -109,6 +111,10 @@ export default {
         .then(response=>response.json())
         .then(data=>{
             this.fromServer=data.recommendedlength
+        })
+        .catch(err=>{
+            console.log('Caught it!',err)
+            this.fromServer=err
         })
     }
     } 
